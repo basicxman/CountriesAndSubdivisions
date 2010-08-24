@@ -12,7 +12,7 @@ end
 
 # Trims off newline characters and removes [subdivision] strings.
 def trim(string)
-  return string.gsub(/\[.*?\]/, "").chomp
+  return string.gsub(/(\[.*?\]|\\|'|\s\Z)/, "").chomp
 end
 
 countries = {} # Hash to store country => subdivisions[]
@@ -20,11 +20,11 @@ countries = {} # Hash to store country => subdivisions[]
 # Process input file.
 File.open(ARGV[0]).each_line do |current_line|
 
-  values = current_line.split(';')
+  values = current_line.split(';').map { |i| trim(i) }
   next unless values.length == 2
   
   countries[values[0]] ||= []
-  countries[values[0]] << trim(values[1])
+  countries[values[0]] << values[1]
 
 end
 
