@@ -33,8 +33,6 @@ output = File.open("output.sql", "w")
 
 # Create table and initial INSERT line.
 output.puts <<eos
---Countries and Subdivisions--
-
 CREATE TABLE IF NOT EXISTS `countries_and_subdivisions` (
   `country_name` VARCHAR(255) NOT NULL,
   `country_subdivisions` TEXT NOT NULL

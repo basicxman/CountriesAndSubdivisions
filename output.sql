@@ -1,5 +1,3 @@
---Countries and Subdivisions--
-
 CREATE TABLE IF NOT EXISTS `countries_and_subdivisions` (
   `country_name` VARCHAR(255) NOT NULL,
   `country_subdivisions` TEXT NOT NULL
