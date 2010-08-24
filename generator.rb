@@ -10,6 +10,11 @@ unless File.exists? ARGV[0]
   exit
 end
 
+# Trims off newline characters and removes [subdivision] strings.
+def trim(string)
+  return string.gsub(/\[.*?\]/, "").chomp
+end
+
 countries = {} # Hash to store country => subdivisions[]
 
 File.open(ARGV[0]).each_line do |current_line|
@@ -17,8 +22,8 @@ File.open(ARGV[0]).each_line do |current_line|
   values = current_line.split(';')
   next unless values.length == 2
   
-  countries[values[0]] == [] unless countries.include? values[0] 
-  countries[values[0]] << values[1]
+  countries[values[0]] ||= []
+  countries[values[0]] << trim(values[1])
 
 end
 

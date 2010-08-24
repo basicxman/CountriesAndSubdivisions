@@ -4415,4 +4415,3 @@ Zimbabwe;Masvingo
 Zimbabwe;Matabeleland North
 Zimbabwe;Matabeleland South
 Zimbabwe;Midlands
-;Kuna Yala
