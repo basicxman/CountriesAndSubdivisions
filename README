@@ -1,0 +1,12 @@
+Takes a semicolon delimited list from http://www.commondatahub.com/live/geography/state_province_region/iso_3166_2_state_codes
+and generates an SQL table which contains a comma separated list of subdivisions
+within a country.
+
+Selected Columns from CommonDataHub:
+~Country Name
+~ISO 3166-2 Subvision/State Name
+
+To run,
+./convert.rb file_to_process.txt
+or
+ruby convert.rb file_to_process.txt
