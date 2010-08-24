@@ -17,6 +17,7 @@ end
 
 countries = {} # Hash to store country => subdivisions[]
 
+# Process input file.
 File.open(ARGV[0]).each_line do |current_line|
 
   values = current_line.split(';')
@@ -27,4 +28,19 @@ File.open(ARGV[0]).each_line do |current_line|
 
 end
 
-print countries
+# Open an SQL File.
+output = File.open("output.sql", "w")
+
+# Create table and initial INSERT line.
+output.puts <<eos
+  --Countries and Subdivisions--
+
+  CREATE TABLE IF NOT EXISTS `countries_and_subdivisions` (
+    `country_name` VARCHAR(255) NOT NULL,
+    `country_subdivisions` TEXT NOT NULL
+  );
+
+  INSERT INTO `countries_and_subdivisions` (`country_name`, `country_subdivisions`) VALUES  
+eos
+
+
