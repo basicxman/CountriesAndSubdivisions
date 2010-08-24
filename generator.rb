@@ -43,4 +43,13 @@ output.puts <<eos
   INSERT INTO `countries_and_subdivisions` (`country_name`, `country_subdivisions`) VALUES  
 eos
 
+# Insert all countries.
+current_iteration = 1
+final_iteration   = countries.length
 
+countries.each do |country, subdivisions|
+  # Comma separated list of subdivisions.
+  output.puts "('#{country}', '#{subdivisions.join(',')}')" + ((current_iteration == final_iteration) ? ";" : ",")
+
+  current_iteration += 1
+end
