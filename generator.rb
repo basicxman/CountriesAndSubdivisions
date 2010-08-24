@@ -12,7 +12,7 @@ end
 
 # Trims off newline characters and removes [subdivision] strings.
 def trim(string)
-  return string.gsub(/(\[.*?\]|\\|'|\s\Z)/, "").chomp
+  return string.gsub(/(\[.*?\]|\\|')/, "").chomp.chomp(" ")
 end
 
 countries = {} # Hash to store country => subdivisions[]
