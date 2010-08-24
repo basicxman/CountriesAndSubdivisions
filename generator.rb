@@ -17,7 +17,7 @@ File.open(ARGV[0]).each_line do |current_line|
   values = current_line.split(';')
   next unless values.length == 2
   
-  countries[values[0]] == [] unless countries.includes? values[0] 
+  countries[values[0]] == [] unless countries.include? values[0] 
   countries[values[0]] << values[1]
 
 end
